@@ -61,11 +61,11 @@ nav a:hover{border-bottom-color:var(--strike)}
  repeating-linear-gradient(90deg,#e7c389 0 9px,#d9ae72 9px 10px,#e2b97b 10px 19px,#c99a5f 19px 20px)}
 /* frames strip */
 .frames{padding:44px 0 8px}
-.frames ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border:3px solid var(--ink);background:var(--card)}
+.frames ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:3px solid var(--ink);background:var(--card)}
 .frames li{position:relative;padding:34px 18px 18px;min-height:128px;border-left:3px solid var(--ink);display:flex;flex-direction:column;justify-content:flex-end}
 .frames li:first-child{border-left:0}
 .frames li:before{content:attr(data-n);position:absolute;top:0;left:0;width:34px;height:30px;display:grid;place-content:center;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);font-weight:700;font-size:16px}
-.frames b{font:800 40px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.frames b{overflow-wrap:anywhere;font:800 40px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
 .frames span{font-size:18px}
 /* sections */
 section{padding:84px 0}
