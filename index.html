@@ -45,7 +45,7 @@ nav a:hover{border-bottom-color:var(--strike)}
 .menu-toggle{display:none;min-height:52px;padding:0 20px;background:var(--paper);border:3px solid var(--ink);border-radius:4px;font:700 18px "Atkinson Hyperlegible",Arial,sans-serif;color:var(--ink);cursor:pointer}
 /* hero */
 .hero{padding:56px 0 48px}
-.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
 .hero h1{font-size:clamp(52px,7.2vw,104px);margin:14px 0 24px}
 .hero h1 em{font-style:normal;color:var(--strike)}
 .lead{font-size:22px;line-height:1.55;max-width:34ch;margin:0 0 30px;color:var(--ink)}
@@ -81,7 +81,7 @@ h2{font-size:clamp(40px,5.2vw,68px);margin:12px 0 18px}
 .tarifs{background:var(--lane);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
 .tarifs .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
 .tarifs .label{color:#4a2a0c}
-.bignum{white-space:nowrap;font:800 clamp(48px,5.6vw,76px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin:6px 0 14px}
+.bignum{white-space:normal;font:800 clamp(48px,5.6vw,76px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin:6px 0 14px}
 .tarifs p{max-width:42ch}
 .tarifs .fine{font-size:17px}
 .sheet{background:var(--card);border:3px solid var(--ink);border-radius:4px;padding:12px}
@@ -108,7 +108,7 @@ h2{font-size:clamp(40px,5.2vw,68px);margin:12px 0 18px}
 .practical .btn:hover{background:#fff}
 .contact{display:flex;flex-direction:column;gap:6px;margin:22px 0;font-size:24px;font-weight:700}
 .contact a{overflow-wrap:anywhere}
-table{width:100%;border-collapse:collapse;margin:14px 0}
+table{table-layout:fixed;overflow-wrap:anywhere;width:100%;border-collapse:collapse;margin:14px 0}
 th,td{padding:16px 0;border-bottom:2px solid #5d6784;text-align:left;font-size:20px}
 th{font-weight:400}
 td{font-weight:700;text-align:right;white-space:nowrap}
@@ -126,14 +126,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justif
 footer .social{display:flex;gap:26px;font-weight:700}
 footer small{display:block;width:100%;font-size:16px;color:var(--muted);border-top:2px solid var(--ink);padding-top:18px}
 @media(max-width:960px){
- .hero .wrap,.tarifs .grid,.practical .grid{grid-template-columns:1fr}
+ .hero .wrap,.tarifs .grid,.practical .grid{grid-template-columns:minmax(0,1fr)}
  .hero .wrap{gap:36px}
  .acts{grid-template-columns:1fr 1fr}.acts .act:first-child{grid-column:1/-1}
  .rows li{grid-template-columns:70px 1fr}.rows li>div:last-child{grid-column:2}
  .frames ol{grid-template-columns:repeat(3,1fr)}
  .frames li:nth-child(4){border-left:0}.frames li:nth-child(n+4){border-top:3px solid var(--ink)}
 }
-@media(max-width:760px){
+@media(max-width:1100px){
  body{font-size:19px}
  .header .wrap{flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
  .menu-toggle{display:inline-block}
@@ -149,7 +149,7 @@ footer small{display:block;width:100%;font-size:16px;color:var(--muted);border-t
  .photo{margin-left:0}
  .photo img{aspect-ratio:5/4}
  section{padding:56px 0}
- .acts{grid-template-columns:1fr}
+ .acts{grid-template-columns:minmax(0,1fr)}
  .rows li{grid-template-columns:1fr;gap:10px}.rows li>div:last-child{grid-column:1}.rows .no{font-size:48px}
  .frames ol{grid-template-columns:1fr 1fr}
  .frames li{min-height:112px;padding:34px 12px 14px}.frames b{font-size:32px}.frames span{font-size:17px}
@@ -165,6 +165,8 @@ footer small{display:block;width:100%;font-size:16px;color:var(--muted);border-t
 .note a,.act a,.credit-line a,.rows a,.sheet figcaption a,.contact a,.social a{display:inline-flex;align-items:center;min-height:44px}
 .brand{min-height:48px}
 .contact a{padding:4px 0}
+*{min-width:0}a{overflow-wrap:anywhere}.social{flex-wrap:wrap}h1,h2,h3,.frames b,.bignum{overflow-wrap:anywhere}
+.frames ol{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))!important}.frames li{border:1px solid var(--ink)!important;grid-column:auto!important}
 </style>
 </head>
 <body>
@@ -268,4 +270,4 @@ nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functio
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setMenu(false);toggle.focus()}});
 </script>
 </body>
-</html>
+ </html>
